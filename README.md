@@ -52,8 +52,8 @@ kubectl -n default create token general
 -> For Others Service Account
 kubectl -n default create token others
 
-4. Create Kubeconfig Files
-5. 
+Step-4. Create Kubeconfig Files
+
 Use the tokens generated in the previous step to create kubeconfig files for each ServiceAccount.
 
 -> In the user vm create a file kubeconfig-admin.yaml  (code is present in RBAC)
