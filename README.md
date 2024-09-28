@@ -44,12 +44,15 @@ Step-3. cat ~/.kube/config   (This generates a token )
 
 
 -> For Admin Service Account
+
 kubectl -n default create token admin
 
 -> For General Service Account
+
 kubectl -n default create token general
 
 -> For Others Service Account
+
 kubectl -n default create token others
 
 Step-4. Create Kubeconfig Files
