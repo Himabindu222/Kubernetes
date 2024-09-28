@@ -95,3 +95,27 @@ subjects:
   - kind: ServiceAccount
     name: others
     namespace: default
+
+
+#### kubeconfig-admin.yaml
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data:  jfkhiugvnvg        # Replace with the generated token ( cat ~/.kube/config )
+    server: https://172.31.45.104:6443    # Your K8s API server endpoint
+  name: kubernetes
+contexts:
+- context:
+    cluster: kubernetes
+    user: admin
+  name: admin-context
+current-context: admin-context
+kind: Config
+preferences: {}
+users:
+- name: admin
+  user:
+    token: <admin-token>  # Replace with the generated token you got by running the command (kubectl -n default create token admin)
+```
+
+Replace `<admin-token>` with the actual token generated for the `admin` ServiceAccount.
