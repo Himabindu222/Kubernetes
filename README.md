@@ -1,5 +1,5 @@
 # Kubernetes
-1. Installing Kubernetes:
+Step-1. Installing Kubernetes:
 
 Run below commands on Master and Worker node
 
@@ -35,25 +35,29 @@ kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.49.0/deploy/static/provider/baremetal/deploy.yaml
 
-2. Create a file to create user ServiceAccount, clusterRole, clusterRoleBinding
+Step-2. Create a file to create user ServiceAccount, clusterRole, clusterRoleBinding
 vi admin.yaml  (copy the code from RBAC)
 
 kubectl apply -f admin.yaml
 
-3. cat ~/.kube/config   (This generates a token )
+Step-3. cat ~/.kube/config   (This generates a token )
 
 
-# For Admin Service Account
+-> For Admin Service Account
 kubectl -n default create token admin
 
-# For General Service Account
+-> For General Service Account
 kubectl -n default create token general
 
-# For Others Service Account
+-> For Others Service Account
 kubectl -n default create token others
 
 4. Create Kubeconfig Files
+5. 
 Use the tokens generated in the previous step to create kubeconfig files for each ServiceAccount.
+
 -> In the user vm create a file kubeconfig-admin.yaml  (code is present in RBAC)
+
 -> export KUBECONFIG=/path/to/admin-kubeconfig.yaml
+
 export KUBECONFIG=/home/ubuntu/kubeconfig-admin.yaml   (now Linux understands that it need to use this file for authentication)
