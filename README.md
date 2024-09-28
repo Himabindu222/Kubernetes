@@ -36,9 +36,9 @@ kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.49.0/deploy/static/provider/baremetal/deploy.yaml
 
 Step-2. Create a file to create user ServiceAccount, clusterRole, clusterRoleBinding
-vi admin.yaml  (copy the code from RBAC)
+vi admin-sa.yaml  (copy the code from RBAC)
 
-kubectl apply -f admin.yaml
+kubectl apply -f admin-sa.yaml
 
 Step-3. cat ~/.kube/config   (This generates a token )
 
@@ -57,6 +57,8 @@ Step-4. Create Kubeconfig Files
 Use the tokens generated in the previous step to create kubeconfig files for each ServiceAccount.
 
 -> In the user vm create a file kubeconfig-admin.yaml  (code is present in RBAC)
+
+vi kubeconfig-admin.yaml
 
 -> export KUBECONFIG=/path/to/admin-kubeconfig.yaml
 
